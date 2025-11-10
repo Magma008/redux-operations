@@ -107,26 +107,26 @@ const Students = () => {
                       </div>
                     </td>
                     <td className='whitespace-nowrap w-fit px-4 py-4'>
-                      <p className='text-[14px] font-normalt'>{person.name}</p>
+                      <p className='text-[14px] font-normalt'>{person?.name}</p>
                     </td>
                     <td className='whitespace-nowrap w-fit px-4 py-4'>
                       <p className='text-[14px] break-all xl:break-[none] font-normalt'>{person.email}</p>
                     </td>
                     <td className='whitespace-nowrap w-fit px-4 py-4'>
-                      <p className='text-[14px] font-normalt'>{person.phoneNumber}</p>
+                      <p className='text-[14px] font-normalt'>{person?.phoneNumber || "Unavailable"}</p>
                     </td>
                     <td className='whitespace-nowrap w-fit px-4 py-4'>
-                      <p className='text-[14px] font-normalt'>{person.enrollNumber}</p>
+                      <p className='text-[14px] font-normalt'>{person?.enrollNumber}</p>
                     </td>
                     <td className='whitespace-nowrap w-fit px-4 py-4'>
-                      <p className='text-[14px] font-normalt'>{person.date}</p>
+                      <p className='text-[14px] font-normalt'>{person?.date}</p>
                     </td>
                     <td className='whitespace-nowrap w-fit px-4 py-4'>
                       <div className="flex gap-6 text-[20px] text-[#FEAF00]">
                         <button>
                           <FaPencilAlt className='cursor-pointer' />
                         </button>
-                        <button onClick={() => handleDelete(person.id)}>
+                        <button onClick={() => handleDelete(person?.id)}>
                           <IoTrash className='cursor-pointer' />
                           {/* <IoTrash onClick={() => dispatch(deleteUser(person.id))} className='cursor-pointer' /> */}
                         </button>
