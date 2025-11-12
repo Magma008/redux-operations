@@ -6,19 +6,22 @@ import Students from './pages/students/Students'
 import Payment from './pages/payment/Payment'
 import Course from './pages/course/Course'
 import Sidebar from './components/sidebar/Sidebar'
+import Edit from './pages/edit/Edit'
 
 const App = () => {
   const [signed, setSigned] = useState(false)
+    const [changed, setChanged] = useState(false)
 
   if (signed) {
-    return (
+  return (
       <div className='flex flex-1 relative w-full'>
-        <Sidebar setSigned={setSigned} />
+        <Sidebar />
         <Routes>
           <Route path='/' element={<Homepage />} />
-          <Route path='/students' element={<Students />} />
+          <Route path='/students' element={<Students  changed={changed} setChanged={setChanged}  />} />
           <Route path='/payment' element={<Payment />} />
           <Route path='/course' element={<Course />} />
+          <Route path='/edit/:id' element={<Edit changed={changed} setChanged={setChanged}  />} />
         </Routes>
       </div>
     )
@@ -29,6 +32,8 @@ const App = () => {
       </div>
     )
   }
+
+
 }
 
 export default App

@@ -6,10 +6,10 @@ import { IoTrash } from "react-icons/io5";
 import { useDispatch } from 'react-redux';
 import { deleteUser } from '../../features/getInfo/infoSlice';
 import axios from 'axios';
+import Loader from '../../components/loader/Loader';
 
-const Students = () => {
+const Students = ({ changed, setChanged }) => {
   const url = "https://68eb4fa276b3362414cd5222.mockapi.io/users"
-  const [changed, setChanged] = useState(false)
   const dispatch = useDispatch()
   const [data, setData] = useState([])
 
@@ -123,22 +123,23 @@ const Students = () => {
                     </td>
                     <td className='whitespace-nowrap w-fit px-4 py-4'>
                       <div className="flex gap-6 text-[20px] text-[#FEAF00]">
-                        <button>
-                          <FaPencilAlt className='cursor-pointer' />
-                        </button>
-                        <button onClick={() => handleDelete(person?.id)}>
+                        <Link to={`/edit/${person?.id}`} >
+                          <button className='transition-all duration-300 hover:scale-[1.3]'>
+                            <FaPencilAlt className='cursor-pointer' />
+                          </button>
+                        </Link>
+                        <button className='transition-all duration-300 hover:scale-[1.3]' onClick={() => handleDelete(person?.id)}>
                           <IoTrash className='cursor-pointer' />
                           {/* <IoTrash onClick={() => dispatch(deleteUser(person.id))} className='cursor-pointer' /> */}
                         </button>
                       </div>
                     </td>
                   </tr>
-                ))
+                )) 
               }
             </tbody>
           </table>
         </div>
-
       </div>
     </div>
   )

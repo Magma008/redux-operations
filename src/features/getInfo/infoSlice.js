@@ -18,12 +18,14 @@ export const infoSlice = createSlice({
         },
         deleteUser: (state, action) => {
             axios.delete(`${url}/${action.payload}`)
-            console.log(action.payload);
             
+        },
+        editUser: (state, action) => {
+            axios.put( `${url}/${action.payload.id}`, action.payload )
         }
     }
 })
 
-export const { addUser, deleteUser } = infoSlice.actions
+export const { addUser, deleteUser, editUser } = infoSlice.actions
 
 export default infoSlice.reducer
