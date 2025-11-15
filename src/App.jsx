@@ -15,7 +15,7 @@ const App = () => {
   if (signed) {
   return (
       <div className='flex flex-1 relative w-full'>
-        <Sidebar />
+        <Sidebar setSigned={setSigned} />
         <Routes>
           <Route path='/' element={<Homepage />} />
           <Route path='/students' element={<Students  changed={changed} setChanged={setChanged}  />} />

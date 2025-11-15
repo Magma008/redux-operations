@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import { deleteUser } from '../../features/getInfo/infoSlice';
 import axios from 'axios';
 import Loader from '../../components/loader/Loader';
-
+ 
 const Students = ({ changed, setChanged }) => {
   const url = "https://68eb4fa276b3362414cd5222.mockapi.io/users"
   const dispatch = useDispatch()
